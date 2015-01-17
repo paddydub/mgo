@@ -6,9 +6,9 @@ import (
 	"time"
 
 	. "gopkg.in/check.v1"
-	"gopkg.in/mgo.v2"
-	"gopkg.in/mgo.v2/bson"
-	"gopkg.in/mgo.v2/txn"
+	"gopkg.in/mgo"
+	"gopkg.in/mgo/bson"
+	"gopkg.in/mgo/txn"
 )
 
 func TestAll(t *testing.T) {

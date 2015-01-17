@@ -2,12 +2,12 @@ package txn_test
 
 import (
 	"flag"
-	"gopkg.in/mgo.v2"
-	"gopkg.in/mgo.v2/bson"
-	"gopkg.in/mgo.v2/txn"
-	. "gopkg.in/check.v1"
 	"math/rand"
 	"time"
+	. "gopkg.in/check.v1"
+	"gopkg.in/mgo"
+	"gopkg.in/mgo/bson"
+	"gopkg.in/mgo/txn"
 )
 
 var (
@@ -149,7 +149,6 @@ func (s *S) TestSimChangeLog(c *C) {
 	})
 }
 
-
 type balanceChange struct {
 	id     bson.ObjectId
 	origin int
@@ -184,7 +183,7 @@ func simulate(c *C, params params) {
 	tclog := db.C("tc.log")
 	if params.changelog {
 		info := mgo.CollectionInfo{
-			Capped: true,
+			Capped:   true,
 			MaxBytes: 1000000,
 		}
 		err := tclog.Create(&info)
